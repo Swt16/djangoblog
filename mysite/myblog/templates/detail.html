@@ -1,7 +1,9 @@
 {% extends "base.html" %}
-
 {% block content %}
 <a class="backlink" href="/">Home</a>
+{% if user.is_authenticated %}
+<a class="editlink" href="/posts/{{ post.id }}/edit">Edit</a>
+{% endif %}
 <h1>{{ post }}</h1>
 <p class="byline">
   Posted by {{ post.author.username }} &mdash; {{ post.published_date }}
